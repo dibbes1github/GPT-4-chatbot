@@ -29,3 +29,13 @@ jobs:
         push: true
         tags: your_docker_image_name:latest
         build-args: OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+
+    - name: Copy .htaccess file to container
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        target: builder
+        args:
+          HTTPD_CONF_PATH: /usr/local/apache2/conf/httpd.conf
+        run: |
+          echo "Include /var/www/html/.htaccess" >> $HTTPD_CONF_PATH
