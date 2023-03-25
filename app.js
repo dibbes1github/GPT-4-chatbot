@@ -39,9 +39,9 @@ app.post('/api/chatgpt', async (req, res) => {
   }
 });
 
-// Route to serve index.html
+// Updated route to serve index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const port = process.env.PORT || 3000;
