@@ -1,8 +1,12 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
+
+// Serve static files (HTML, CSS, JS) from the current directory
+app.use(express.static(__dirname));
 
 app.post('/api/chatgpt', async (req, res) => {
   const { message } = req.body;
@@ -37,7 +41,8 @@ app.post('/api/chatgpt', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
