@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatInput = document.querySelector(".chat-input");
   const chatMessages = document.querySelector(".chat-messages");
   const chatForm = document.getElementById("chat-form");
+  const responseArea = document.querySelector(".response-area");
 
   // Handle sending message
   chatForm.addEventListener("submit", function (event) {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const userMessage = document.createElement("div");
     userMessage.classList.add("chat-message", "user-message");
     userMessage.textContent = message;
-    chatMessages.appendChild(userMessage);
+    responseArea.appendChild(userMessage);
     chatInput.value = "";
 
     // Scroll to the bottom of the chat
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const botMessage = document.createElement("div");
       botMessage.classList.add("chat-message", "bot-message");
       botMessage.textContent = response;
-      chatMessages.appendChild(botMessage);
+      responseArea.appendChild(botMessage);
 
       // Scroll to the bottom of the chat
       chatMessages.scrollTop = chatMessages.scrollHeight;
