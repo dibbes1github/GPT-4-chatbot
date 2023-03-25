@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
@@ -36,6 +37,11 @@ app.post('/api/chatgpt', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Failed to fetch ChatGPT response.' });
   }
+});
+
+// Route to serve index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const port = process.env.PORT || 3000;
