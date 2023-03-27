@@ -17,6 +17,7 @@ app.use(express.static('public', {
   },
 }));
 
+console.log(process.env.OPENAI_API_KEY);
 
 app.post('/api/chatgpt', async (req, res) => {
   const { message } = req.body;
