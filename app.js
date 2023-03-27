@@ -15,6 +15,7 @@ app.use(express.static('public', {
   },
 }));
 
+
 app.post('/api/chatgpt', async (req, res) => {
   const { message } = req.body;
 
